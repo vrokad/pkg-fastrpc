@@ -20,7 +20,6 @@ on:
 jobs:
   debusine:
     name: Debusine
-    if: startsWith(github.ref_name, 'qcom/debian/')
     uses: qualcomm-linux/debusine-action/.github/workflows/debusine.yml@dev/sbeaudoi
     with:
       target_branch: qcom/debian/trixie
