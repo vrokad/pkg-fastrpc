@@ -25,7 +25,7 @@ jobs:
         name: Set matrix
         run: |
           # Define candidate branches (duplicated from workflow_dispatch options in debusine.yml)
-          candidates='["qcom/debian/latest", "qcom/debian/trixie"]'
+          candidates='["qcom/debian/trixie"]'
 
           # Filter to branches that exist
           existing=()
@@ -48,7 +48,7 @@ jobs:
       fail-fast: false
       matrix:
         target_branch: ${{ fromJson(needs.check-branches.outputs.matrix) }}
-    uses: qualcomm-linux/debusine-action/.github/workflows/debusine.yml@main
+    uses: qualcomm-linux/debusine-action/.github/workflows/debusine.yml@enable-axiom
     with:
       target_branch: ${{ matrix.target_branch }}
       source_ref: refs/heads/${{ matrix.target_branch }}
